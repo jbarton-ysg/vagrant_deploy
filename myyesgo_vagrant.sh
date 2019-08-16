@@ -9,9 +9,9 @@ pwd
 # run maven build
 mvn -B verify
 
-mv myyesgo-api/target/myyesgo-api-1.0.0-SNAPSHOT.war /opt/tomcat/webapps/myyesgo-api.war
-mv myyesgo-security/target/security-rest-api-1.0.0-SNAPSHOT.war /opt/tomcat/webapps//security-rest-api.war
-mv myyesgo-integration/target/myyesgo-integration-1.0.0-SNAPSHOT.war /opt/tomcat/webapps/myyesgo-integration.war
+cp myyesgo-api/target/myyesgo-api-1.0.0-SNAPSHOT.war /opt/tomcat/webapps/myyesgo-api.war
+cp myyesgo-security/target/security-rest-api-1.0.0-SNAPSHOT.war /opt/tomcat/webapps//security-rest-api.war
+cp myyesgo-integration/target/myyesgo-integration-1.0.0-SNAPSHOT.war /opt/tomcat/webapps/myyesgo-integration.war
 
 cd myyesgo-web
 rm -rf node_modules
