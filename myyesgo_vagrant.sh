@@ -48,9 +48,12 @@ sh /opt/tomcat/bin/startup.sh
 
 #update database
 cd ../myyesgo-database
-mysql --user="remote" --password="password" CREATE DATABASE "myyesgo;"
-mysql --user="remote" --password="password" CREATE DATABASE "myyesgo_security;"
-mysql --user="remote" --password="password" CREATE DATABASE "myyesgo_integration;"
+
+# create databses manually for kno
+
+#mysql --user="remote" --password="password" CREATE DATABASE "myyesgo;"
+#mysql --user="remote" --password="password" CREATE DATABASE "myyesgo_security;"
+#mysql --user="remote" --password="password" CREATE DATABASE "myyesgo_integration;"
 
 mysql -u remote -p"password" myyesgo < Scripts/myyesgo.sql
 mysql -u remote -p"password" myyesgo_security < Scripts/myyesgo_security.sql
