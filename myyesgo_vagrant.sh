@@ -23,6 +23,7 @@ rm -rf package-lock.json
 npm install
 npm run build:vagrant
 mv build ROOT
+
 cp -r ROOT webapps/
 
 sh /opt/tomcat/bin/startup.sh
@@ -34,6 +35,14 @@ sh /opt/tomcat/bin/shutdown.sh
 rm -rf /opt/tomcat/webapps/*.war
 rm -rf /opt/tomcat/logs/*
 
+
+#!bin/bash
+sudo cp -r deployment/properties/vagrant/lib/*.properties /opt/tomcat/lib
+sudo cp -r deployment/properties/vagrant/myyesgo-api/WEB-INF/classes/*.properties /opt/tomcat/webapps/myyesgo-api/WEB-INF/classes/
+sudo cp -r deployment/properties/vagrant/security-rest-api/WEB-INF/classes/*.properties /opt/tomcat/webapps/myyesgo-api/WEB-INF/classes/
+sudo cp -r deployment/properties/vagrant/myyesgo-integration/WEB-INF/classes/* /opt/tomcat/webapps/myyesgo-integration/WEB-INF/classes/
+
+
 sh /opt/tomcat/bin/startup.sh
 
 #update database
@@ -42,7 +51,7 @@ mysql --user="remote" --password="password" --execute="DROP DATABASE myyesgo; CR
 mysql --user="remote" --password="password" --execute="DROP DATABASE myyesgo_security; CREATE DATABASE myyesgo_security;"
 mysql --user="remote" --password="password" --execute="DROP DATABASE myyesgo_integration; CREATE DATABASE myyesgo_integration;"
 
-mysql -u remote -p"secret" myyesgo < Scripts/myyesgo.sql
-mysql -u remote -p"secret" myyesgo_security < Scripts/myyesgo_security.sql
-mysql -u remote -p"secret" myyesgo_integration < Scripts/myyesgo_integration.sql
-mysql -u remote -p"secret" myyesgo < Procedures/spGetHandOff.sql
+mysql -u remote -p"password" myyesgo < Scripts/myyesgo.sql
+mysql -u remote -p"password" myyesgo_security < Scripts/myyesgo_security.sql
+mysql -u remote -p"password" myyesgo_integration < Scripts/myyesgo_integration.sql
+mysql -u remote -p"password" myyesgo < Procedures/spGetHandOff.sql
