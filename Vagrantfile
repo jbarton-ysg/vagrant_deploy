@@ -68,7 +68,7 @@ Vagrant.configure("2") do |config|
      apt-get update
      apt-get install -y maven 
      curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-     sudo apt-get install nodejs
+     sudo apt-get install nodejs -y
 
    SHELL
 end
