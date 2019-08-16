@@ -4,15 +4,14 @@
 sh /opt/tomcat/bin/shutdown.sh
 
 # cd to root of app
-cd myyesgo
-
+cd ../myyesgo
+pwd
 # run maven build
 mvn -B verify
 
-image: node:10.16.0
-          - mv myyesgo-api/target/myyesgo-api-1.0.0-SNAPSHOT.war /opt/tomcat/webapps//myyesgo-api.war
-          - mv myyesgo-security/target/security-rest-api-1.0.0-SNAPSHOT.war /opt/tomcat/webapps//security-rest-api.war
-          - mv myyesgo-integration/target/myyesgo-integration-1.0.0-SNAPSHOT.war /opt/tomcat/webapps/myyesgo-integration.war
+mv myyesgo-api/target/myyesgo-api-1.0.0-SNAPSHOT.war /opt/tomcat/webapps/myyesgo-api.war
+mv myyesgo-security/target/security-rest-api-1.0.0-SNAPSHOT.war /opt/tomcat/webapps//security-rest-api.war
+mv myyesgo-integration/target/myyesgo-integration-1.0.0-SNAPSHOT.war /opt/tomcat/webapps/myyesgo-integration.war
 
 cd myyesgo-web
 rm -rf node_modules
@@ -21,6 +20,8 @@ npm install
 npm run build:vagrant
 mv build ROOT
 cp -r ROOT /webapps
+
+
 
 sh /opt/tomcat/bin/startup.sh
 
