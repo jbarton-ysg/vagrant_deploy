@@ -66,7 +66,7 @@ Vagrant.configure("2") do |config|
   # documentation for more information about their specific syntax and use.
    config.vm.provision "shell", inline: <<-SHELL
      apt-get update
-     apt-get install -y maven nodejs npm
+     apt-get install -y maven nodejs npm nodejs-legacy
    SHELL
 end
 
