@@ -6,6 +6,9 @@ sh /opt/tomcat/bin/shutdown.sh
 # cd to root of app
 cd ../myyesgo
 pwd
+git checkout code_deploy
+
+
 # run maven build
 mvn -B verify
 
@@ -25,6 +28,8 @@ npm run build:vagrant
 rm -rf ROOT
 mv build ROOT
 
+rm -rf /opt/tomcat/webapps/ROOT
+
 cp -r ROOT webapps/
 
 sh /opt/tomcat/bin/startup.sh
@@ -33,9 +38,12 @@ sleep 20
 
 sh /opt/tomcat/bin/shutdown.sh
 
+echo ls -la /opt/tomcat/webapps
+
 rm -rf /opt/tomcat/webapps/*.war
 rm -rf /opt/tomcat/logs/*
 
+cd ../
 
 #!bin/bash
 sudo cp -r deployment/properties/vagrant/lib/*.properties /opt/tomcat/lib
@@ -47,7 +55,7 @@ sudo cp -r deployment/properties/vagrant/myyesgo-integration/WEB-INF/classes/* /
 sh /opt/tomcat/bin/startup.sh
 
 #update database
-cd ../myyesgo-database
+cd myyesgo-database
 
 # create databses manually for kno
 
