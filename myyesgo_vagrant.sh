@@ -13,8 +13,12 @@ git checkout code_deploy
 mvn -B verify
 
 mv myyesgo-api/target/myyesgo-api-1.0.0-SNAPSHOT.war myyesgo-api/target/myyesgo-api.war
-mv myyesgo-security/target/security-rest-api-1.0.0-SNAPSHOT.war myyesgo-security/targetsecurity-rest-api.war
-mv myyesgo-integration/target/myyesgo-integration-1.0.0-SNAPSHOT.war myyesgo-integration/targetmyyesgo-integration.war
+mv myyesgo-security/target/security-rest-api-1.0.0-SNAPSHOT.war myyesgo-security/target/security-rest-api.war
+mv myyesgo-integration/target/myyesgo-integration-1.0.0-SNAPSHOT.war myyesgo-integration/target/myyesgo-integration.war
+
+sudo rm -rf /opt/tomcat/webapps/myyesgo-api
+sudo rm -rf /opt/tomcat/webapps/security-rest-api
+sudo rm -rf /opt/tomcat/webapps/myyesgo-integration
 
 sudo cp myyesgo-api/target/myyesgo-api.war /opt/tomcat/webapps/
 sudo cp myyesgo-security/target/security-rest-api.war /opt/tomcat/webapps/
@@ -30,7 +34,7 @@ mv build ROOT
 
 rm -rf /opt/tomcat/webapps/ROOT
 
-cp -r ROOT webapps/
+cp -r ROOT /opt/tomcat/webapps/
 
 sh /opt/tomcat/bin/startup.sh
 
@@ -48,7 +52,7 @@ cd ../
 #!bin/bash
 sudo cp -r deployment/properties/vagrant/lib/*.properties /opt/tomcat/lib
 sudo cp -r deployment/properties/vagrant/myyesgo-api/WEB-INF/classes/*.properties /opt/tomcat/webapps/myyesgo-api/WEB-INF/classes/
-sudo cp -r deployment/properties/vagrant/security-rest-api/WEB-INF/classes/*.properties /opt/tomcat/webapps/myyesgo-api/WEB-INF/classes/
+sudo cp -r deployment/properties/vagrant/security-rest-api/WEB-INF/classes/*.properties /opt/tomcat/webapps/security-api/WEB-INF/classes/
 sudo cp -r deployment/properties/vagrant/myyesgo-integration/WEB-INF/classes/* /opt/tomcat/webapps/myyesgo-integration/WEB-INF/classes/
 
 
