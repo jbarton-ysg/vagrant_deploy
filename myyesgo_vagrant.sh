@@ -42,17 +42,14 @@ sleep 20
 
 sh /opt/tomcat/bin/shutdown.sh
 
-echo ls -la /opt/tomcat/webapps
-
-rm -rf /opt/tomcat/webapps/*.war
+#rm -rf /opt/tomcat/webapps/*.war
 rm -rf /opt/tomcat/logs/*
 
 cd ../
 
-#!bin/bash
 sudo cp -r deployment/properties/vagrant/lib/*.properties /opt/tomcat/lib
 sudo cp -r deployment/properties/vagrant/myyesgo-api/WEB-INF/classes/*.properties /opt/tomcat/webapps/myyesgo-api/WEB-INF/classes/
-sudo cp -r deployment/properties/vagrant/security-rest-api/WEB-INF/classes/*.properties /opt/tomcat/webapps/security-api/WEB-INF/classes/
+sudo cp -r deployment/properties/vagrant/security-rest-api/WEB-INF/classes/*.properties /opt/tomcat/webapps/security-rest-api/WEB-INF/classes/
 sudo cp -r deployment/properties/vagrant/myyesgo-integration/WEB-INF/classes/* /opt/tomcat/webapps/myyesgo-integration/WEB-INF/classes/
 
 
