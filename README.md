@@ -5,7 +5,7 @@ This script uses this Vagrant box
 https://app.vagrantup.com/emessiha/boxes/ubuntu64-java
 
 windows users will need to add synked folder option NFS
-see https://www.vagrantup.com/docs/synced-folders/nfs.html for more info
+https://www.vagrantup.com/docs/synced-folders/nfs.html 
 
 
 
