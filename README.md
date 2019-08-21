@@ -20,6 +20,9 @@ https://github.com/jbarton-ysg/vagrant_deploy/blob/master/Vagrantfile
 windows users will need to add synked folder option NFS
 https://www.vagrantup.com/docs/synced-folders/nfs.html 
 
+Windows user will need to add plugin
+- vagrant plugin install vagrant-winnfsd
+
 - vagrant up --provision
 
  setup vagrant ssh into vagrant box 
