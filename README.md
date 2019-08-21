@@ -38,6 +38,6 @@ https://www.vagrantup.com/docs/synced-folders/nfs.html
 site will be up at http://192.168.33.10:8080/ on success
 
 if encouter errors see
-- cat/opt/tomcat/logs/catalina.out
+- cat /opt/tomcat/logs/catalina.out
   
 
