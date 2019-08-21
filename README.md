@@ -4,6 +4,10 @@ vagrant code deploy script
 This script uses this Vagrant box
 https://app.vagrantup.com/emessiha/boxes/ubuntu64-java
 
+windows users will need to add synked folder option NFS
+see https://www.vagrantup.com/docs/synced-folders/nfs.html for more info
+
+
 
 install virtualbox and vagrant if not installed yet 
 create a folder in your home directory vagrantJava
@@ -16,4 +20,7 @@ create a folder in your home directory vagrantJava
   - create database myyesgo;
   - create database myyesgo_security;
   - create database myyesgo_integration;
+  
+  
+  
 
