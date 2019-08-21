@@ -10,10 +10,10 @@ create a folder in your home directory vagrantJava
 
 
  setup vagrant ssh into vagrant box 
-  # vagrant ssh
-  # mv  /opt/tomcat/webapps/ROOTZ /opt/tomcat/webapps/tcroot
-  # mysql -u remote -p password
-  # create database myyesgo;
-  # create database myyesgo_security;
-  # create database myyesgo_integration;
+  - vagrant ssh
+  - mv  /opt/tomcat/webapps/ROOTZ /opt/tomcat/webapps/tcroot
+  - mysql -u remote -p password
+  - create database myyesgo;
+  - create database myyesgo_security;
+  - create database myyesgo_integration;
 
