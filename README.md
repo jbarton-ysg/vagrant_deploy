@@ -21,9 +21,9 @@ windows users will need to add synked folder option NFS
 https://www.vagrantup.com/docs/synced-folders/nfs.html 
 
 - vagrant up --provision
-- vagrant ssh
 
  setup vagrant ssh into vagrant box 
+  - vagrant ssh
   - mv  /opt/tomcat/webapps/ROOTZ /opt/tomcat/webapps/tcroot
   - mysql -u remote -p password
   - create database myyesgo;
