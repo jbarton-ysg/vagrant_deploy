@@ -29,6 +29,7 @@ https://www.vagrantup.com/docs/synced-folders/nfs.html
   - create database myyesgo;
   - create database myyesgo_security;
   - create database myyesgo_integration;
+  - exit
   
  run deploy script
  - cd /home/ubuntu/code/vagrant_deploy
