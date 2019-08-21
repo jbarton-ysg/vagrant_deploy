@@ -1,13 +1,23 @@
 #!/bin/bash
+#  vagrant myyesgo deploy script
+#
+#   ####### prerequisites #####
+#   intall -virtualbox
+#   intall -vagrant
+#   ####### setup vagrant ssh into vagrant box #####
+#   vagrant ssh
+#   mv  /opt/tomcat/webapps/ROOTZ /opt/tomcat/webapps/tcroot
+#   mysql -u remote -p password
+#   create database myyesgo;
+#   create database myyesgo_security;
+#   create database myyesgo_integration;
 
-
-sh /opt/tomcat/bin/shutdown.sh
-
+#sh /opt/tomcat/bin/shutdown.sh
+sudo service tomcat stop
 # cd to root of app
-cd ../myyesgo
+cd ~/code/myyesgo
 pwd
 git checkout code_deploy
-
 
 # run maven build
 mvn -B verify
@@ -24,7 +34,7 @@ sudo cp myyesgo-api/target/myyesgo-api.war /opt/tomcat/webapps/
 sudo cp myyesgo-security/target/security-rest-api.war /opt/tomcat/webapps/
 sudo cp myyesgo-integration/target/myyesgo-integration.war /opt/tomcat/webapps/
 
-cd myyesgo-web
+cd ~/code/myyesgo/myyesgo-web
 rm -rf node_modules
 rm -rf package-lock.json
 npm install
@@ -36,13 +46,13 @@ rm -rf /opt/tomcat/webapps/ROOT
 
 cp -r ROOT /opt/tomcat/webapps/
 
-sh /opt/tomcat/bin/startup.sh
-
-sleep 20
-
-sh /opt/tomcat/bin/shutdown.sh
-
-#rm -rf /opt/tomcat/webapps/*.war
+# starting and stoping to inflate war files
+sudo service tomcat start
+sleep 30
+sudo service tomcat stop
+sleep 10
+# delete war files
+rm -rf /opt/tomcat/webapps/*.war
 rm -rf /opt/tomcat/logs/*
 
 cd ../
@@ -53,13 +63,12 @@ sudo cp -r deployment/properties/vagrant/security-rest-api/WEB-INF/classes/*.pro
 sudo cp -r deployment/properties/vagrant/myyesgo-integration/WEB-INF/classes/* /opt/tomcat/webapps/myyesgo-integration/WEB-INF/classes/
 
 
-sh /opt/tomcat/bin/startup.sh
-
+#sh /opt/tomcat/bin/startup.sh
+sudo service tomcat start
 #update database
 cd myyesgo-database
 
 # create databses manually for kno
-
 #mysql --user="remote" --password="password" CREATE DATABASE "myyesgo;"
 #mysql --user="remote" --password="password" CREATE DATABASE "myyesgo_security;"
 #mysql --user="remote" --password="password" CREATE DATABASE "myyesgo_integration;"
