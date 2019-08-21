@@ -9,7 +9,7 @@ create a folder in your home directory vagrantJava
 
 - cd vagrantJava 
 - vagrant init emessiha/ubuntu64-java
-v- agrant up
+- vagrant up
 
 box should be up at localhost:8080
 - vagrant halt
