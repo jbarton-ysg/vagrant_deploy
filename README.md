@@ -24,7 +24,7 @@ https://www.vagrantup.com/docs/synced-folders/nfs.html
 
  setup vagrant ssh into vagrant box 
   - vagrant ssh
-  - mv  /opt/tomcat/webapps/ROOTZ /opt/tomcat/webapps/tcroot
+  - mv  /opt/tomcat/webapps/ROOT /opt/tomcat/webapps/tcroot
   - mysql -u remote -p password
   - create database myyesgo;
   - create database myyesgo_security;
