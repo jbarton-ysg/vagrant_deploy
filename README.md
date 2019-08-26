@@ -35,6 +35,7 @@ Windows user will need to add plugin
   - exit
   
  run deploy script
+ - vagrant ssh
  - cd /home/ubuntu/code/vagrant_deploy
  - ./myyesgo_vagrant.sh
   
