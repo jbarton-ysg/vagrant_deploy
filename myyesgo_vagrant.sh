@@ -17,7 +17,7 @@ sudo service tomcat stop
 # cd to root of app
 cd ~/code/myyesgo
 pwd
-git checkout code_deploy
+# git checkout code_deploy
 
 # run maven build
 mvn -B verify
